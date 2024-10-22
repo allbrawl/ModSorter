@@ -1,18 +1,11 @@
+import csv
 import os
 import shutil
-import csv
 import tempfile
 import zipfile
 from pathlib import Path
 from apkutils2 import APK, ARSCParser
-import xml.etree.ElementTree as ET
 
-# ALL_BASE_V29_APKS = ['ShotgunGirl', 'Gunslinger', 'BullDude', 'RocketGirl', 'TrickshotDude', 'Cactus', 'Barkeep',
-#                      'Mechanic', 'Shaman', 'TntDude', 'Luchador', 'Undertaker', 'Crow', 'DeadMariachi', 'BowDude',
-#                      'Sniper', 'MinigunDude', 'BlackHole', 'BarrelBot', 'ArtilleryDude', 'HammerDude', 'HookDude',
-#                      'ClusterBombDude', 'Ninja', 'Rosa', 'Whirlwind', 'Baseball', 'Arcade', 'Sandstorm', 'BeeSniper',
-#                      'Mummy', 'SpawnerDude', 'Speedy', 'Homer', 'Driller', 'Blower', 'Controller', 'Wally',
-#                      'PowerLeveler', 'Percenter', 'FireDude']
 ALL_BRAWLERS_CODENAMES = []
 ALL_SKINS_CODENAMES = []
 
@@ -177,6 +170,7 @@ def get_first_column_values_for_specific_value(csv_file, column_name, value):
         print(f"Error reading CSV file {csv_file}: {e}")
     return result
 
+
 def get_all_values(csv_file, index=0):
     result = []
     try:
@@ -188,6 +182,7 @@ def get_all_values(csv_file, index=0):
         print(f"Error reading CSV file {csv_file}: {e}")
     return result
 
+
 # Main function
 def main():
     global ALL_BRAWLERS_CODENAMES, ALL_SKINS_CODENAMES
@@ -195,8 +190,10 @@ def main():
     input_folder = r"C:\Dev\Python\modcombiner\all mods\v29 offline"
     output_csv = r"apk_database.csv"
     latest_brawl_stars_apk_path = "latest_brawl_stars_apk"
-    ALL_BRAWLERS_CODENAMES = get_first_column_values_for_specific_value(os.path.join(latest_brawl_stars_apk_path, "assets", "csv_logic", "characters.csv"), "Type", "Hero")
-    ALL_SKINS_CODENAMES = get_all_values(os.path.join(latest_brawl_stars_apk_path, "assets", "csv_logic", "skin_confs.csv"), 0)
+    ALL_BRAWLERS_CODENAMES = get_first_column_values_for_specific_value(
+        os.path.join(latest_brawl_stars_apk_path, "assets", "csv_logic", "characters.csv"), "Type", "Hero")
+    ALL_SKINS_CODENAMES = get_all_values(
+        os.path.join(latest_brawl_stars_apk_path, "assets", "csv_logic", "skin_confs.csv"), 0)
     # Confirm the path exists
     if not Path(input_folder).exists():
         print(f"The specified folder does not exist: {input_folder}")
