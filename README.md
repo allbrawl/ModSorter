@@ -1,4 +1,17 @@
-How to use :
-- install packages (I don't remember which ones aren't prinstalled)
-- In main() change input_folder variable to the path of your folder with the apks
-- run the script
+# Mod Sorter
+
+Sorts brawl stars mods and outputs to a csv file.
+
+## How to use
+
+Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+Run the program
+
+```
+python3 main.py <input> <output>
+```
