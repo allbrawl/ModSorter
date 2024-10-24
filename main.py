@@ -4,8 +4,8 @@ import shutil
 import tempfile
 import zipfile
 from pathlib import Path
-from apkutils2 import APK, ARSCParser
 import argparse
+from apkutils2 import APK, ARSCParser
 
 ALL_BRAWLERS_CODENAMES = []
 ALL_SKINS_CODENAMES = []
@@ -191,9 +191,9 @@ def main():
                     description='Sort mods and output to a csv')
     parser.add_argument("input", help="input file")
     parser.add_argument("output", help="output file")
+    args = parser.parse_args()
     input_folder = args.input
     output_csv = args.output
-    parser.parse_args()
     latest_brawl_stars_apk_path = "latest_brawl_stars_apk"
     ALL_BRAWLERS_CODENAMES = get_first_column_values_for_specific_value(
         os.path.join(latest_brawl_stars_apk_path, "assets", "csv_logic", "characters.csv"), "Type", "Hero")
